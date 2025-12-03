@@ -20,8 +20,10 @@ static long Part1(string[] banks)
 
     static int ExtractHighestTwoDigits(ReadOnlySpan<char> bank)
     {
-        char firstDigit = (char)('0' - 1);
-        char secondDigit = (char)('0' - 1);
+        const char notSet = (char)('0' - 1);
+
+        char firstDigit = notSet;
+        char secondDigit = notSet;
 
         for (var i = 0; i < bank.Length; i++)
         {
@@ -30,7 +32,7 @@ static long Part1(string[] banks)
             if (digit > firstDigit && i < bank.Length - 1)
             {
                 firstDigit = digit;
-                secondDigit = (char)('0' - 1);
+                secondDigit = notSet;
                 continue;
             }
 
